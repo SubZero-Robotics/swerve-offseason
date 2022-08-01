@@ -1,31 +1,23 @@
-// Copyright (c) FIRST and other WPILib contributors.
-// Open Source Software; you can modify and/or share it under the terms of
-// the WPILib BSD license file in the root directory of this project.
-
 #pragma once
 
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
-#include "subsystems/DriveSubsystem.h"
+#include "subsystems/drivetrain.h"
 
 /**
- * An example command that uses an example subsystem.
- *
- * <p>Note that this extends CommandHelper, rather extending CommandBase
- * directly; this is crucially important, or else the decorator functions in
- * Command will *not* work!
+ * The command that controls our autonomous routine.
  */
 class Auto
     : public frc2::CommandHelper<frc2::CommandBase, Auto> {
  public:
   /**
-   * Creates a new ExampleCommand.
+   * Creates a new instance of Auto command.
    *
-   * @param subsystem The subsystem used by this command.
+   * @param drivetrain A subsystem used by this command.
    */
-  explicit Auto(DriveSubsystem* subsystem);
+  explicit Auto(drivetrain* drivetrain);
 
  private:
-  DriveSubsystem* m_autonomousCommand;
+  drivetrain* m_drivetrain;
 };

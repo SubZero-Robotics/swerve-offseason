@@ -4,28 +4,24 @@
 
 #include "RobotContainer.h"
 
-RobotContainer::RobotContainer() {
+RobotContainer::RobotContainer() : m_Auto(&m_drivetrain) {
   // Initialize all of your commands and subsystems here
 
   // Configure the button bindings
   ConfigureButtonBindings();
 
-  // ooh SetDefaultCommand how *fancy*
-  m_drive.SetDefaultCommand(DefaultDrive(
-    &m_drive,
-    [this] { return Xbox.GetLeftY(); },
-    [this] { return Xbox.GetLeftX(); },
-    // I dunno if this is the right thing to do here, I want the angle (I think in radians?) but I'm using X because GetRightZ doesn't exist?
-    [this] { return Xbox.GetRightX(); })
-    );
+  m_drivetrain.SetDefaultCommand(Drive(
+    &m_drivetrain,
+    [this] { return m_controllerMain.GetX(); },
+    [this] { return m_controllerMain.GetY(); },
+    [this] { return m_controllerMain.GetZ(); })); 
 }
 
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
-  // This function is empty... Just like my love life
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
   // An example command will be run in autonomous
-  return &m_autonomousCommand;
+  return &m_Auto;
 }

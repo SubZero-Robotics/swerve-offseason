@@ -6,12 +6,13 @@
 
 #include <frc2/command/Command.h>
 
-#include <frc/XboxController.h>
+#include "Constants.h"
 
 #include "commands/Auto.h"
-#include "commands/DefaultDrive.h"
+#include "commands/Drive.h"
+#include "subsystems/drivetrain.h"
 
-#include "subsystems/DriveSubsystem.h"
+#include <frc/Joystick.h>
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -28,11 +29,11 @@ class RobotContainer {
 
  private:
   // The robot's subsystems and commands are defined here...
-  DriveSubsystem m_drive;
+  drivetrain m_drivetrain;
 
-  Auto m_autonomousCommand;
-
-  frc::XboxController Xbox{0};
+  Auto m_Auto;
 
   void ConfigureButtonBindings();
+
+  frc::Joystick m_controllerMain{controllerConstants::kControllerMainID};
 };

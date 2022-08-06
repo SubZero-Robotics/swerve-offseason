@@ -1,13 +1,10 @@
 #include "subsystems/drivetrain.h"
 
 #include <frc/smartdashboard/SmartDashboard.h>
-#include <frc/smartdashboard/Field2d.h>
 
 drivetrain::drivetrain() {
     m_navX.ZeroYaw();
 }
-
-frc::Field2d m_field;
 
 void drivetrain::SwerveDrive(units::meters_per_second_t xSpeed,
                              units::meters_per_second_t ySpeed,
@@ -22,7 +19,6 @@ void drivetrain::SwerveDrive(units::meters_per_second_t xSpeed,
     frc::SmartDashboard::PutNumber("xSpeed", xSpeed.value());
     frc::SmartDashboard::PutNumber("ySpeed", ySpeed.value());
     frc::SmartDashboard::PutNumber("zRotation", zRot.value());
-    frc::SmartDashboard::PutData("Field", &m_field);
     
     auto [frontRight, rearRight, frontLeft, rearLeft] = moduleStates;
 
@@ -40,8 +36,6 @@ void drivetrain::UpdateOdometry() {
 
 void drivetrain::Periodic() {
     UpdateOdometry();
-
-    m_field.SetRobotPose(m_odometry.GetPose());
 
     // Test posting angle to Dashboard.
     frc::SmartDashboard::PutNumber("Front Right Angle", m_frontRight.DashboardInfo(swerveModule::DataType::kCurrentAngle));

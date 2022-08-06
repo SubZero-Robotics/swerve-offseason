@@ -8,11 +8,11 @@ _actual documentation below_
 In trying to keep the file structure as similar to the 2022 commandrobot structure, we have the following files:
 
 - subsystems
-    - DriveSubsystem
+    - drivetrain
 
 - commands
     - Auto | Test command for following paths
-    - DefaultDrive | This is the code used for controller based driving
+    - Drive | This is the code used for controller based driving
 
 ## Credits
 The code in this repo is based on a lot of different things:

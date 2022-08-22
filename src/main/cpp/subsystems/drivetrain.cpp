@@ -49,4 +49,6 @@ void drivetrain::Periodic() {
     frc::SmartDashboard::PutNumber("Rear Left TARGET", m_rearLeft.DashboardInfo(swerveModule::DataType::kTargetAngle));
 }
 
-void drivetrain::SimulationPeriodic() {}
+void drivetrain::SimulationPeriodic() {
+    
+}

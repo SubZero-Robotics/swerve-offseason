@@ -21,20 +21,20 @@ namespace controllerConstants {
 
 namespace drivetrainConstants {
     //CAN IDs
-    constexpr int kMotorDriveFrontRightID = 0;
-    constexpr int kMotorDriveRearRightID = 1;
-    constexpr int kMotorDriveFrontLeftID = 2;
-    constexpr int kMotorDriveRearLeftID = 3;
+    constexpr int kMotorDriveFrontRightID = 5;
+    constexpr int kMotorDriveRearRightID = 3;
+    constexpr int kMotorDriveFrontLeftID = 4;
+    constexpr int kMotorDriveRearLeftID = 6;
 
-    constexpr int kMotorTurnFrontRightID = 4;
-    constexpr int kMotorTurnRearRightID = 5;
-    constexpr int kMotorTurnFrontLeftID = 6;
-    constexpr int kMotorTurnRearLeftID = 7;
+    constexpr int kMotorTurnFrontRightID = 7;
+    constexpr int kMotorTurnRearRightID = 2;
+    constexpr int kMotorTurnFrontLeftID = 1;
+    constexpr int kMotorTurnRearLeftID = 8;
 
-    constexpr int kEncoderTurnFrontRightID = 8;
-    constexpr int kEncoderTurnRearRightID = 9;
-    constexpr int kEncoderTurnFrontLeftID = 10;
-    constexpr int kEncoderTurnRearLeftID = 11;
+    constexpr int kEncoderTurnFrontRightID = 3;
+    constexpr int kEncoderTurnRearRightID = 4;
+    constexpr int kEncoderTurnFrontLeftID = 2;
+    constexpr int kEncoderTurnRearLeftID = 1;
 
     namespace offsets {
         constexpr double kFrontRight{54.844};

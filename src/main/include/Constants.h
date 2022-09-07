@@ -37,10 +37,10 @@ namespace drivetrainConstants {
     constexpr int kEncoderTurnRearLeftID = 1;
 
     namespace offsets {
-        constexpr double kFrontRight{54.844};
-        constexpr double kRearRight{-154.951};
-        constexpr double kFrontLeft{-139.922};
-        constexpr double kRearLeft{103.008};
+        constexpr double kFrontRight{192.568};
+        constexpr double kRearRight{187.295};
+        constexpr double kFrontLeft{44.385};
+        constexpr double kRearLeft{-54.053};
     }
 
     namespace swerveModules {

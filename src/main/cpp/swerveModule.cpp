@@ -14,9 +14,6 @@ swerveModule::swerveModule(const double module[])
     ConfigModule(ConfigType::motorDrive);
     ConfigModule(ConfigType::motorTurn);
     ConfigModule(ConfigType::encoderTurn);
-    if constexpr (frc::RobotBase::IsReal()) {
-        ConfigModule(ConfigType::simulatedConfig);
-    };
 }
 
 void swerveModule::ConfigModule(const ConfigType& type) {
@@ -41,8 +38,6 @@ void swerveModule::ConfigModule(const ConfigType& type) {
             m_encoderTurn.ConfigFactoryDefault();
             m_encoderTurn.ConfigAllSettings(m_settings.encoderTurn);
             m_encoderTurn.ConfigMagnetOffset(m_encoderOffset);
-            break;
-        case ConfigType::simulatedConfig :
             break;
         default :
             throw std::invalid_argument("Invalid swerveModule ConfigType");

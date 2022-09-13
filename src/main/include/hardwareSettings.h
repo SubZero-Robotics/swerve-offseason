@@ -20,7 +20,7 @@ class hardwareSettings {
         encoderTurn.unitString = std::string("deg");
         encoderTurn.sensorTimeBase = ctre::phoenix::sensors::SensorTimeBase::PerSecond;
 
-        //TalonFX
+        //TalonFX - Drive
         motorDrive.primaryPID.selectedFeedbackSensor = ctre::phoenix::motorcontrol::FeedbackDevice::IntegratedSensor;
         motorDrive.primaryPID.selectedFeedbackCoefficient = 1.0;
         motorDrive.closedloopRamp = 1.705000;
@@ -47,19 +47,19 @@ class hardwareSettings {
         motorDrive.motorCommutation = ctre::phoenix::motorcontrol::MotorCommutation::Trapezoidal;
         motorDrive.initializationStrategy = ctre::phoenix::sensors::SensorInitializationStrategy::BootToAbsolutePosition;
 
-        //TalonFX
+        //TalonFX - Turn
         motorTurn.primaryPID.selectedFeedbackSensor = ctre::phoenix::motorcontrol::FeedbackDevice::RemoteSensor0;
         motorTurn.primaryPID.selectedFeedbackCoefficient = 1.0;
         motorTurn.closedloopRamp = 1.0;
-        motorTurn.peakOutputForward = 0.20F; //0.15
-        motorTurn.peakOutputReverse = -0.20F; //0.15
-        motorTurn.nominalOutputForward = 0.018F;
-        motorTurn.nominalOutputReverse = -0.018F;
+        motorTurn.peakOutputForward = 1;
+        motorTurn.peakOutputReverse = -1;
+        motorTurn.nominalOutputForward = 1;
+        motorTurn.nominalOutputReverse = -1;
         motorTurn.neutralDeadband = 0.001;
         motorTurn.velocityMeasurementPeriod = ctre::phoenix::sensors::SensorVelocityMeasPeriod::Period_100Ms;
-        motorTurn.slot0.kP = 0.35;
+        motorTurn.slot0.kP = 0.0045;
         motorTurn.slot0.kI = 0;
-        motorTurn.slot0.kD = 40;
+        motorTurn.slot0.kD = 0.017;
         motorTurn.slot0.kF = 0;
         //motorTurn.slot0.integralZone = 0;
         motorTurn.slot0.allowableClosedloopError = 1*(4096/360);

@@ -34,10 +34,10 @@ class drivetrain : public frc2::SubsystemBase {
 
  private:
 
-  frc::Translation2d m_locationFrontRight{+13.250_in, +13.250_in};
-  frc::Translation2d m_locationRearRight{-13.250_in, +13.250_in};
-  frc::Translation2d m_locationFrontLeft{+13.250_in, -13.250_in};
-  frc::Translation2d m_locationRearLeft{-13.250_in, -13.250_in};
+  frc::Translation2d m_locationFrontRight{+13.250_in, -13.250_in};
+  frc::Translation2d m_locationRearRight{-13.250_in, -13.250_in};
+  frc::Translation2d m_locationFrontLeft{+13.250_in, +13.250_in};
+  frc::Translation2d m_locationRearLeft{-13.250_in, +13.250_in};
 
   swerveModule m_frontRight{drivetrainConstants::swerveModules::kModuleFrontRight};
   swerveModule m_rearRight{drivetrainConstants::swerveModules::kModuleRearRight};

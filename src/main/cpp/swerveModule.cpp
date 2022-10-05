@@ -31,7 +31,7 @@ void swerveModule::ConfigModule(const ConfigType& type) {
             m_motorTurn.ConfigRemoteFeedbackFilter(m_encoderTurn.GetDeviceNumber(),
                                                    ctre::phoenix::motorcontrol::
                                                    RemoteSensorSource::RemoteSensorSource_CANCoder, 0, 50);
-            m_motorTurn.SetInverted(ctre::phoenix::motorcontrol::TalonFXInvertType::CounterClockwise);
+            m_motorTurn.SetInverted(true);
             m_motorTurn.SelectProfileSlot(0, 0);
             break;
         case ConfigType::encoderTurn :
@@ -69,7 +69,7 @@ void swerveModule::SetDesiredState(const frc::SwerveModuleState& referenceState)
     //std::cout << targetMotorSpeed.value() << "-target_SPEED\n";
 
     m_motorTurn.Set(ctre::phoenix::motorcontrol::TalonFXControlMode::Position, turnOutput);
-    //std::cout << turnOutput << "u\n";
+    std::cout << turnOutput << "u\n";
 }
 
 frc::SwerveModuleState swerveModule::CustomOptimize(const frc::SwerveModuleState& desiredState,

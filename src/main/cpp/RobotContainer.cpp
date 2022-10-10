@@ -3,6 +3,7 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "RobotContainer.h"
+#include <frc2/command/button/JoystickButton.h>
 
 RobotContainer::RobotContainer() : m_Auto(&m_drivetrain) {
   // Initialize all of your commands and subsystems here
@@ -14,11 +15,14 @@ RobotContainer::RobotContainer() : m_Auto(&m_drivetrain) {
     &m_drivetrain,
     [this] { return m_controllerMain.GetX(); },
     [this] { return m_controllerMain.GetY(); },
-    [this] { return m_controllerMain.GetZ(); })); 
+    [this] { return m_controllerMain.GetZ(); }));
 }
 
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
+
+  frc2::JoystickButton(&m_controllerMain, 10)
+    .WhenHeld(DriveResetOdometry(&m_drivetrain, &m_controllerMain));
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {

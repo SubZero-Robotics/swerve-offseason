@@ -19,6 +19,8 @@ void drivetrain::SwerveDrive(units::meters_per_second_t xSpeed,
     frc::SmartDashboard::PutNumber("xSpeed", xSpeed.value());
     frc::SmartDashboard::PutNumber("ySpeed", ySpeed.value());
     frc::SmartDashboard::PutNumber("zRotation", zRot.value());
+
+    frc::SmartDashboard::PutNumber("Rotation2d", (double)m_navX.GetRotation2d().Degrees());
     
     auto [frontRight, rearRight, frontLeft, rearLeft] = moduleStates;
 
@@ -34,7 +36,12 @@ void drivetrain::UpdateOdometry() {
                       m_rearLeft.GetState());
 }
 
+void drivetrain::ResetOdometry(frc::Pose2d pose) {
+    m_navX.ZeroYaw();
+}
+
 void drivetrain::Periodic() {
+
     UpdateOdometry();
 
     // Test posting angle to Dashboard.

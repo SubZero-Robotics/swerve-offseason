@@ -10,6 +10,7 @@
 
 #include "commands/Auto.h"
 #include "commands/Drive.h"
+#include "commands/DriveResetOdometry.h"
 #include "subsystems/drivetrain.h"
 
 #include <frc/Joystick.h>

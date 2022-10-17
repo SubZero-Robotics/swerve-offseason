@@ -31,7 +31,7 @@ void swerveModule::ConfigModule(const ConfigType& type) {
             m_motorTurn.ConfigRemoteFeedbackFilter(m_encoderTurn.GetDeviceNumber(),
                                                    ctre::phoenix::motorcontrol::
                                                    RemoteSensorSource::RemoteSensorSource_CANCoder, 0, 50);
-            m_motorTurn.SetInverted(true);
+            m_motorTurn.SetInverted(false);
             m_motorTurn.SelectProfileSlot(0, 0);
             break;
         case ConfigType::encoderTurn :
